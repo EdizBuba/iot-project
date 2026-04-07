@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Serveur UDP"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="IP du serveur"
+            android:inputType="text"
+            android:text="10.0.2.2" />
+
+        <EditText
+            android:id="@+id/editPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Port"
+            android:inputType="number"
+            android:text="10000" />
+
+        <Button
+            android:id="@+id/buttonGet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="GET" />
+
+        <EditText
+            android:id="@+id/editCommand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Commande (ex: TLH)"
+            android:inputType="text"
+            android:text="TLH" />
+
+        <Button
+            android:id="@+id/buttonSendCommand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Envoyer commande" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Réponse du serveur :"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textResponse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#EEEEEE"
+            android:minHeight="120dp"
+            android:padding="12dp"
+            android:text="Aucune réponse"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</ScrollView>
