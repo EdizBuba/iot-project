@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,71 +12,339 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Header: Title + Badge Actif -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/title_udp"
+                android:textColor="@color/text_primary"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/textStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_badge_active"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="● Actif"
+                android:textColor="@color/badge_active_text"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Server info subtitle -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Serveur UDP"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editIp"
+            android:id="@+id/textServerInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="IP du serveur"
-            android:inputType="text"
-            android:text="10.0.2.2" />
+            android:layout_marginBottom="16dp"
+            android:text="@string/server_info_placeholder"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp" />
 
-        <EditText
-            android:id="@+id/editPort"
+        <!-- ACTIONS Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.IotUdp.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Port"
-            android:inputType="number"
-            android:text="10000" />
+            android:layout_marginBottom="12dp">
 
-        <Button
-            android:id="@+id/buttonGet"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/Widget.IotUdp.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_actions"
+                    android:layout_marginBottom="10dp" />
+
+                <Button
+                    android:id="@+id/buttonGet"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_button_primary"
+                    android:text="@string/action_get"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:stateListAnimator="@null" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- MODE DE TRI Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.IotUdp.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="GET" />
+            android:layout_marginBottom="12dp">
 
-        <EditText
-            android:id="@+id/editCommand"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/Widget.IotUdp.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_modes"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonModeTLH"
+                        style="@style/Widget.IotUdp.ModeButton"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="1"
+                        android:checkable="true"
+                        android:text="@string/mode_tlh" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonModeLTH"
+                        style="@style/Widget.IotUdp.ModeButton"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
+                        android:checkable="true"
+                        android:text="@string/mode_lth" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonModeTHL"
+                        style="@style/Widget.IotUdp.ModeButton"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="1"
+                        android:checkable="true"
+                        android:text="@string/mode_thl" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CAPTEURS Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.IotUdp.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Commande (ex: TLH)"
-            android:inputType="text"
-            android:text="TLH" />
+            android:layout_marginBottom="12dp">
 
-        <Button
-            android:id="@+id/buttonSendCommand"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    style="@style/Widget.IotUdp.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/section_measurements"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Temperature Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_sensor_row"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_icon_temperature"
+                        android:text="T"
+                        android:textColor="@color/sensor_temperature"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Température"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/textTemperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textTempUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" °C"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Luminosity Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_sensor_row"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_icon_luminosity"
+                        android:text="L"
+                        android:textColor="@color/sensor_luminosity"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Luminosité"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/textLuminosite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/sensor_luminosity"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" lux"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <!-- Humidity Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_sensor_row"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp">
+
+                    <TextView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_icon_humidity"
+                        android:text="H"
+                        android:textColor="@color/sensor_humidity"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Humidité"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/textHumidite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textColor="@color/sensor_humidity"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" %"
+                        android:textColor="@color/text_muted"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- DEBUG Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.IotUdp.Card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Envoyer commande" />
+            android:layout_marginBottom="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Réponse du serveur :"
-            android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
 
-        <TextView
-            android:id="@+id/textResponse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="#EEEEEE"
-            android:minHeight="120dp"
-            android:padding="12dp"
-            android:text="Aucune réponse"
-            android:textSize="16sp" />
+                <TextView
+                    style="@style/Widget.IotUdp.SectionTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEBUG"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:id="@+id/textResponse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_debug"
+                    android:fontFamily="monospace"
+                    android:minHeight="80dp"
+                    android:padding="12dp"
+                    android:text="@string/debug_no_response"
+                    android:textColor="@color/accent_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,35 @@
+<resources>
+
+    <style name="Widget.IotUdp.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/bg_card</item>
+        <item name="strokeColor">@color/border_soft</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">18dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="Widget.IotUdp.SectionTitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">@color/accent_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="Widget.IotUdp.PrimaryButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/accent_primary</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="cornerRadius">14dp</item>
+    </style>
+
+    <style name="Widget.IotUdp.ModeButton" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/mode_button_stroke</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="backgroundTint">@color/mode_button_background</item>
+        <item name="android:textColor">@color/mode_button_text</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

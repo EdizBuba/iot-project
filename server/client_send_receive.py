@@ -2,7 +2,8 @@ import socket
 import sys
 
 HOST, PORT = "localhost", 10000
-data = " ".join(sys.argv[1:])
+#data = " ".join(sys.argv[1:])
+data = '{"T":23,"L":120,"H":45}'
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 

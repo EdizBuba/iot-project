@@ -2,4 +2,37 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="bg_primary">#0E0F1C</color>
+    <color name="bg_card">#161828</color>
+    <color name="bg_card_alt">#111422</color>
+    <color name="border_soft">#2A2F45</color>
+
+    <color name="accent_primary">#7C6BFF</color>
+    <color name="accent_secondary">#00E7D8</color>
+    <color name="accent_warning">#F9C35B</color>
+    <color name="accent_error">#FF5C7A</color>
+    <color name="accent_green">#4ECBA5</color>
+
+    <color name="text_primary">#F4F6FF</color>
+    <color name="text_secondary">#A2A8BD</color>
+    <color name="text_muted">#7A8097</color>
+
+    <!-- Sensor colors -->
+    <color name="sensor_temperature">#FF5C7A</color>
+    <color name="sensor_luminosity">#F9C35B</color>
+    <color name="sensor_humidity">#4ECBA5</color>
+
+    <!-- Sensor icon backgrounds -->
+    <color name="sensor_temp_bg">#3D1A22</color>
+    <color name="sensor_lux_bg">#3D2F0A</color>
+    <color name="sensor_hum_bg">#0F3020</color>
+
+    <!-- Badge active -->
+    <color name="badge_active_bg">#1A3D3A</color>
+    <color name="badge_active_text">#00E7D8</color>
+
+    <color name="debug_bg">#070910</color>
+    <color name="debug_cmd">#00E7D8</color>
+    <color name="debug_response">#7C6BFF</color>
 </resources>

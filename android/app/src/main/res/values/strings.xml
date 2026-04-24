@@ -1,3 +1,58 @@
 <resources>
     <string name="app_name">IotUdpApp</string>
+    <string name="title_udp">Mesures UDP</string>
+    <string name="connection_title">Connexion UDP</string>
+    <string name="connection_subtitle">Configurez l\'adresse du serveur pour commencer.</string>
+    <string name="section_connection">Connexion</string>
+    <string name="section_command">Commande d\'affichage</string>
+    <string name="section_actions">Actions</string>
+    <string name="section_modes">Mode de tri</string>
+    <string name="section_measurements">Capteurs</string>
+    <string name="section_debug">Debug</string>
+
+    <string name="hint_ip">IP du serveur</string>
+    <string name="hint_port">Port UDP</string>
+    <string name="hint_command">Commande (ex : TLH)</string>
+    <string name="default_ip">10.0.2.2</string>
+    <string name="default_port">10000</string>
+    <string name="action_get">Envoyer GET</string>
+    <string name="action_connect">Se connecter</string>
+    <string name="action_send_command">Envoyer commande</string>
+    <string name="mode_tlh">TLH</string>
+    <string name="mode_lth">LTH</string>
+    <string name="mode_thl">THL</string>
+
+    <string name="status_idle">Prêt</string>
+    <string name="status_connected">Connecté au serveur</string>
+    <string name="status_sending">Envoi de : %1$s ...</string>
+    <string name="status_mode_selected">Mode sélectionné : %1$s</string>
+    <string name="status_data_updated">Données mises à jour</string>
+    <string name="status_json_warning">Réponse reçue, mais JSON invalide</string>
+
+    <string name="error_empty_command">Commande vide</string>
+    <string name="error_empty_ip">IP vide</string>
+    <string name="error_invalid_ip">IP invalide</string>
+    <string name="error_empty_port">Port vide</string>
+    <string name="error_invalid_port">Port invalide</string>
+    <string name="error_invalid_port_range">Port hors plage (1-65535)</string>
+    <string name="error_invalid_connection_payload">Connexion invalide, revenez à l\'écran de connexion</string>
+    <string name="error_timeout">Timeout UDP (aucune réponse)</string>
+    <string name="error_unknown_host">Hôte introuvable</string>
+    <string name="error_socket">Erreur réseau : %1$s</string>
+    <string name="error_generic">Erreur : %1$s</string>
+
+    <string name="measure_temperature_default">Température : --</string>
+    <string name="measure_luminosity_default">Luminosité : --</string>
+    <string name="measure_humidity_default">Humidité : --</string>
+    <string name="measure_temperature_value">Température : %1$s °C</string>
+    <string name="measure_luminosity_value">Luminosité : %1$s</string>
+    <string name="measure_humidity_value">Humidité : %1$s %%</string>
+
+    <string name="debug_no_response">&gt; En attente de données...</string>
+    <string name="server_info_placeholder">-- : --</string>
+    <string name="server_info_format">%1$s : %2$d</string>
+    <string name="server_info_invalid">Serveur : invalide</string>
+    <string name="connection_in_progress">Connexion en cours...</string>
+    <string name="connection_success">Serveur joignable</string>
+    <string name="error_server_unreachable">Impossible de contacter le serveur</string>
 </resources>
