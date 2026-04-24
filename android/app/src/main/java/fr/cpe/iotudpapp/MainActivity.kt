@@ -16,6 +16,7 @@ import kotlin.concurrent.thread
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textServerInfo: TextView
+    private lateinit var buttonChangeServer: TextView
     private lateinit var buttonGet: Button
     private lateinit var buttonModeTLH: MaterialButton
     private lateinit var buttonModeLTH: MaterialButton
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         textServerInfo = findViewById(R.id.textServerInfo)
+        buttonChangeServer = findViewById(R.id.buttonChangeServer)
         buttonGet = findViewById(R.id.buttonGet)
         buttonModeTLH = findViewById(R.id.buttonModeTLH)
         buttonModeLTH = findViewById(R.id.buttonModeLTH)
@@ -48,6 +50,12 @@ class MainActivity : AppCompatActivity() {
         textLuminosite = findViewById(R.id.textLuminosite)
         textHumidite = findViewById(R.id.textHumidite)
         textResponse = findViewById(R.id.textResponse)
+
+        buttonChangeServer.setOnClickListener {
+            val intent = android.content.Intent(this, ConnectionActivity::class.java)
+            intent.flags = android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP or android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP
+            startActivity(intent)
+        }
 
         serverIp = intent.getStringExtra(EXTRA_SERVER_IP).orEmpty().trim()
         serverPort = intent.getIntExtra(EXTRA_SERVER_PORT, -1)
