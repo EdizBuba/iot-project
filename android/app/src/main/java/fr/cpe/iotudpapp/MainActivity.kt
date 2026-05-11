@@ -1,6 +1,7 @@
 package fr.cpe.iotudpapp
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,11 +12,15 @@ import java.net.DatagramSocket
 import java.net.InetAddress
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textServerInfo: TextView
+    private lateinit var textLastReceived: TextView
     private lateinit var buttonChangeServer: TextView
     private lateinit var buttonGet: Button
     private lateinit var buttonModeTLH: MaterialButton
@@ -40,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         textServerInfo = findViewById(R.id.textServerInfo)
+        textLastReceived = findViewById(R.id.textLastReceived)
         buttonChangeServer = findViewById(R.id.buttonChangeServer)
         buttonGet = findViewById(R.id.buttonGet)
         buttonModeTLH = findViewById(R.id.buttonModeTLH)
@@ -147,6 +153,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleUdpResponse(response: String) {
         textResponse.text = response
+
+        // Update last reception timestamp
+        val time = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+        textLastReceived.text = "Dernière réception : $time"
+        textLastReceived.visibility = View.VISIBLE
 
         val values = parseSensorJson(response)
         if (values == null) {
