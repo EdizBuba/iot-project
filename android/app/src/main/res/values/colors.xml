@@ -22,11 +22,13 @@
     <color name="sensor_temperature">#FF5C7A</color>
     <color name="sensor_luminosity">#F9C35B</color>
     <color name="sensor_humidity">#4ECBA5</color>
+    <color name="sensor_pressure">#72B6FF</color>
 
     <!-- Sensor icon backgrounds -->
     <color name="sensor_temp_bg">#3D1A22</color>
     <color name="sensor_lux_bg">#3D2F0A</color>
     <color name="sensor_hum_bg">#0F3020</color>
+    <color name="sensor_press_bg">#132B46</color>
 
     <!-- Badge active -->
     <color name="badge_active_bg">#1A3D3A</color>
