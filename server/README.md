@@ -1,21 +1,21 @@
 # Serveur Python - Passerelle UDP vers UART
 
-Ce dossier contient la passerelle Python qui relie le smartphone Android au firmware receiver branche en USB.
+Ce dossier contient le serveur Python qui relie la micro:bit receiver branchee en USB aux clients UDP, en particulier l'application Android.
 
 ## 1. Fichier principal
-- `serveur.py` : serveur final utilise pour la demo
+- `serveur.py` : serveur principal du projet
 
 Autres fichiers presents :
-- `controller.py` : exemple initial fourni par l'enseignant
-- `client_send.py` : petit client de test en emission seule
-- `client_send_receive.py` : petit client de test emission + reception
+- `controller.py` : script de reference pour les echanges UDP/UART
+- `client_send.py` : script de test en emission seule
+- `client_send_receive.py` : script de test emission + reception
 
 ## 2. Fonctionnement general
 Le serveur ouvre deux interfaces en parallele :
 - un port serie UART vers la micro:bit receiver
 - une socket UDP vers les clients Android ou outils de test
 
-Son role est de traduire :
+Son role est de faire l'interface entre :
 - les lignes UART `DATA|...` et `CFG-ACK|...` en JSON UDP
 - les commandes UDP `GET`, `subscribe()`, `TLH`, etc. en commandes serie `CFG|...`
 

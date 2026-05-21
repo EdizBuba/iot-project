@@ -1,9 +1,9 @@
 # Application Android - Visualisation et configuration
 
-Ce dossier contient l'application Android qui se connecte au serveur UDP du projet IoT.
+Ce dossier contient l'application Android du projet. Elle se connecte au serveur UDP pour consulter les mesures et envoyer les commandes d'affichage.
 
 ## 1. Objectif de l'application
-L'application a deux fonctions :
+L'application remplit deux fonctions principales :
 - afficher les mesures remontees par le serveur
 - envoyer un ordre d'affichage pour le sender via la chaine serveur -> receiver -> radio
 
@@ -12,7 +12,7 @@ L'application a deux fonctions :
 - `app/src/main/java/fr/cpe/iotudpapp/MainActivity.kt` : ecran principal, ecoute UDP et commandes
 - `app/src/main/res/values/strings.xml` : libelles et valeurs par defaut
 
-## 3. Parcours utilisateur implemente
+## 3. Parcours utilisateur
 ### 3.1 Ecran de connexion
 L'utilisateur saisit :
 - l'adresse IP du serveur
@@ -31,7 +31,7 @@ Une fois ouvert, `MainActivity` :
 - envoie `subscribe()` puis `GET`
 - ecoute en continu les JSON du serveur
 - met a jour temperature, luminosite, humidite et pression
-- affiche la derniere charge JSON brute pour le debug
+- affiche le dernier message JSON brut pour le debug
 - permet d'envoyer `GET`, `TLH`, `LTH` et `THL`
 
 ## 4. Messages attendus du serveur
@@ -82,12 +82,12 @@ L'application n'est pas un simple emetteur UDP :
 - elle ecoute aussi les reponses du serveur
 - elle maintient une socket ouverte pour recevoir les mises a jour poussees
 
-Ce point est important car l'enonce initial proposait une emission simple sans ACK, alors que la version finale du projet implemente une vraie communication bidirectionnelle avec retour des mesures et des ACK de configuration.
+Ce point est important car l'application ne se limite pas a une emission simple en UDP : elle maintient une communication bidirectionnelle avec retour des mesures et des ACK de configuration.
 
 ## 9. Limites actuelles
 - l'interface expose seulement trois presets de mode : `TLH`, `LTH`, `THL`
 - il n'y a pas encore de selection d'objet parmi plusieurs objets
-- l'historique des mesures n'est pas conserve dans l'application
+- les mesures ne sont pas archivees dans l'application
 
 ## 10. Lien avec le reste du projet
 - le serveur consomme et produit le protocole decrit dans `../server/README.md`

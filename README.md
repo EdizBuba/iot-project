@@ -1,10 +1,10 @@
 # Mini-projet IoT - Serveur et application Android
 
-Ce depot contient la partie haute de l'architecture IoT du projet :
+Ce depot regroupe les composants logiciels qui tournent cote PC et smartphone :
 - le serveur passerelle UDP <-> UART
 - l'application Android qui dialogue avec ce serveur
 
-Le firmware micro:bit se trouve dans le depot voisin `micro-bit`.
+La partie embarquee sur micro:bit est documentee dans le depot voisin `micro-bit`.
 
 ## 1. Architecture couverte par ce depot
 
@@ -15,8 +15,8 @@ application Android -> UDP -> serveur Python -> UART USB -> micro:bit receiver -
 
 ## 2. Contenu du depot
 - `server/serveur.py` : passerelle principale entre l'UART de la micro:bit receiver et les clients UDP
-- `server/controller.py` : ancien exemple fourni, conserve comme reference historique
-- `server/client_send.py` et `server/client_send_receive.py` : scripts de test UDP simples
+- `server/controller.py` : script de reference pour l'echange UDP/UART
+- `server/client_send.py` et `server/client_send_receive.py` : scripts de test UDP
 - `android/` : application Android de visualisation et configuration
 
 ## 3. Role du serveur
@@ -53,7 +53,7 @@ python server/serveur.py --serial-port /dev/cu.usbmodemXXXXX --udp-port 10000
 - verifier l'IP du serveur dans l'ecran de connexion
 - lancer l'application sur emulateur ou smartphone reel
 
-## 6. Contrat reseau resume
+## 6. Resume du contrat reseau
 Commandes UDP reconnues par le serveur :
 - `GET`
 - `getValues()`
@@ -75,7 +75,7 @@ Reponses JSON principales :
 - `error`
 - `config_error`
 
-## 7. Documentation detaillee
+## 7. Documentation associee
 - `server/README.md` : protocole, execution et structure du serveur
 - `android/README.md` : organisation et fonctionnement de l'application Android
 - `../micro-bit/README.md` : vue globale du projet complet
@@ -85,4 +85,4 @@ Reponses JSON principales :
 - le serveur doit etre connecte a la micro:bit receiver, pas a la sender
 - le port UART par defaut du firmware receiver est `115200`
 - l'adresse `10.0.2.2` ne vaut que pour un emulateur Android ; sur smartphone reel il faut l'IP du PC sur le Wi-Fi local
-- l'application Android build plus simplement sur l'hote que dans le conteneur de dev
+- l'application Android se build plus simplement sur l'hote que dans le conteneur de dev
